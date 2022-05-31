@@ -1,0 +1,47 @@
+.mainPage {
+    //border: 1px solid springgreen;
+    width: 80%;
+    margin-left: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+};
+
+.mainPageText {
+    //border: 1px solid red;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    //height: 200px;
+};
+
+.mainPagePicture {
+    //border: 1px solid blue;
+};
+
+#getRxDashboard {
+    height: 50px;
+    text-align: center;
+    background-color: rgb(127, 129, 226);
+    border-radius: 10px;
+
+    &:hover{
+        background-color: rgb(104, 106, 196);
+    };
+};
+
+#getRxDashboardLink {
+    padding-left: 15px;
+    padding-right: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    vertical-align: middle;
+};

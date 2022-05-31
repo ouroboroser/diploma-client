@@ -11,6 +11,8 @@ import './styles.scss';
 export const Marbles = () => {
     const [data, setData] = useState([]);
 
+    console.log('test')
+
     const drawMarbleDiagram = () => {
         axios
         .get(`${process.env.REACT_APP_SERVER}/marbles`)

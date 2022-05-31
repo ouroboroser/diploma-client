@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import { Main } from './pages/main';
+import { Docs, Home, SignIn } from './pages';
 import './App.css';
 
 function About() {
@@ -24,15 +25,13 @@ export default function App() {
     return(
       <Router>
         <Switch>
-        <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/users">
-            <Users />
-          </Route>
-          <Route path="/">
-            <Main />
-          </Route>
+        <Route path="/" exact = {true} component = {Home} />
+        <Route path="/docs" exact = {false} component = {Docs}/>
+        <Route path="/signin" exact = {false} component = {SignIn}/>
+        <Route path="/users" exact = {false } component = {Users}/>
+        {/* <Route path="/"> <Main /> </Route> */}
+        {/* <Route path="/" exact = {true}> <Home /> </Route> */}
+    
         </Switch>
       </Router>
     )
