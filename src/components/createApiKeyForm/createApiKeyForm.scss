@@ -1,0 +1,73 @@
+.mainWrapper {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+};
+
+.createApiKeyFormWrapper {
+    //border: 1px solid red;
+    display: flex;
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10%;
+
+    &Img {
+       // border: 1px solid green;
+        width: 600px;
+    };
+
+    &Form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        //border: 1px solid rgb(118, 24, 24);
+        //text-align: center;
+        height: 50%;
+
+        &Description {
+            //border: 1px solid red;
+            text-align: center;
+        };
+
+        &Title {
+            text-transform: uppercase;
+            font-weight: 500;
+            text-align: center;
+        };
+
+        &TitleUnderInpt {
+            color: rgb(168, 166, 166);
+            font-weight: 100;
+            text-align: start;
+        };
+
+        &Inpt{
+            width: 58%;
+            padding: 5px;
+            border: none;
+            height: 30px;
+            background-color: rgb(248, 248, 248);
+            border-radius: 10px;
+            margin-left: 21%;
+            text-align: center;
+            &:focus {
+                outline: none;
+            };
+        };
+
+        &Btn {
+            margin-left: 30%;
+            width: 40%;
+            height: 40px;
+            background-color: #EC615B;
+            border-radius: 10px;
+            border: none;
+            text-transform: uppercase;
+            color: white;
+            font-weight: bold;
+        };
+    };
+};
