@@ -1,4 +1,4 @@
-import { Docs, Home, SignIn, SignUp, Dashboard, CreateApiKey, ListOfApiKeys } from './pages';
+import { Docs, Home, SignIn, SignUp, Dashboard, CreateApiKey, ListOfApiKeys, Diagram } from './pages';
 
 export const routers = [
     {
@@ -35,5 +35,10 @@ export const routers = [
         path: '/api-keys',
         exact: false,
         component: ListOfApiKeys,
+    },
+    {
+        path: '/diagram',
+        exact: false,
+        component: Diagram,
     },
 ];

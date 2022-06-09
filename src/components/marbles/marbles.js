@@ -11,8 +11,6 @@ import './styles.scss';
 export const Marbles = () => {
     const [data, setData] = useState([]);
 
-    console.log('test')
-
     const drawMarbleDiagram = () => {
         axios
         .get(`${process.env.REACT_APP_SERVER}/marbles`)
@@ -28,7 +26,7 @@ export const Marbles = () => {
         <div className = 'diagramWrapper'>
             <div className='diagram'>
             {data.map((d, index) => {
-                const color = getRandomColor(1, 9);
+                const color = getRandomColor(0, 5);
 
                 let filterResult = false;
                 let mapResult = 0;
