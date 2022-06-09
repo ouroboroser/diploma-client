@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BsPlusSquareDotted, BsList } from 'react-icons/bs';
+import { BsPlusSquareDotted, BsList, BsDiagram3 } from 'react-icons/bs';
 import './dashboardMenu.scss';
 
 export const DashboardMenu = () => {

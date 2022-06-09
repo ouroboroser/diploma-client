@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import './signUpForm.scss';
 import axios from 'axios';
 
@@ -8,26 +8,33 @@ export const SignUpForm = () => {
     const [password, setPassword ] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
+    const [auth, setAuth] = useState(false);
 
     const register = (email, password, confirmPassword) => {
         if (email.length === 0 || password.length === 0 || confirmPassword.length === 0) {
-            setError('Enter your data. Yuor must provide your email and password');
+            setError('Enter your data. Your must provide your email and password');
         };
 
         if (password !== confirmPassword) {
             setError('The entered passwords do not match, please check the data');
         };
 
-        console.log('url:', `${process.env.REACT_APP_SERVER_FOR_INTEGRATIONS}/users/sign-up`);
         axios
         .post(`${process.env.REACT_APP_SERVER_FOR_INTEGRATIONS}/users/sign-up`, { email, password })
         .then((response) => {
-            console.log(response.data);
+            localStorage.setItem('data', JSON.stringify(response.data));
+            setAuth(true);
         })
         .catch((error) => {
           console.log(error);
         });
     };
+
+    if (auth) {
+        return (
+            <Redirect to = '/dashboard' />
+        )
+    }
     
     return (
     <div className = 'signUpFormWrapper'>

@@ -5,3 +5,4 @@ export { SignUp } from './SignUp';
 export { Dashboard } from './Dashboard';
 export { CreateApiKey } from './CreateApiKey';
 export { ListOfApiKeys } from './ListOfApiKeys';
+export { Diagram } from './ListOfApiKeys';

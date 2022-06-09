@@ -40,8 +40,17 @@
 
         &TitleUnderInpt {
             color: rgb(168, 166, 166);
-            font-weight: 100;
+            font-weight: 500;
             text-align: start;
+            margin-bottom: -10px;
+        };
+
+        &ApiKey {
+            //border: 1px solid red;
+            color: black;
+            font-size: 14px;
+            font-weight: bold;
+            //margin-top: -10px;
         };
 
         &Inpt{
