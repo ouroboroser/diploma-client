@@ -14,7 +14,7 @@ export const LoginForm = () => {
         .post(`${process.env.REACT_APP_SERVER_FOR_INTEGRATIONS}/users/sign-in`, { email, password })
         .then(response => {
             console.log(response)
-            // localStorage.setItem('data', JSON.stringify(response.data));
+            localStorage.setItem('data', JSON.stringify(response.data));
             setLogin(true);
         })
         .catch(e => {
