@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BsGraphUp } from 'react-icons/bs';
 import { links } from './links';

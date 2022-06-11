@@ -42,7 +42,7 @@ export const LoginForm = () => {
                 <p> <input className = 'loginFormInpt' type = 'password' placeholder='password' value={password} onChange={(e) => setPassword(e.target.value)}/> </p>
                 <p className = 'signUpFormError'> { error } </p>
                 <button className='signInFormBtn' onClick={() => auth(email, password)}> Enter the dashboard </button>
-                <p> You don't have an account <Link to = '/signup'> Create </Link> </p>
+                <p> You don't have an account <Link className = 'loginFormLink' to = '/signup'> create </Link> </p>
             </div>
         </div>
     );

@@ -3,19 +3,6 @@
     display: flex;
 };
 
-.createApiKeyPage {
+.createApiKeyPageMainBlock {
     display: flex;
-    flex-direction: column;
-
-    &Header {
-        // border: 1px solid red;
-        // height: 50px;
-        box-shadow: 10px 15px 10px rgb(238, 238, 238);
-    }
-
-    &MainBlock {
-        display: flex;
-        //border: 1px solid red;
-        // height: 90vh;
-    }
 };

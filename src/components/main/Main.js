@@ -7,7 +7,7 @@ export const Main = () => {
             <div className = 'mainPageText'>
                 <p> Dashboard for developers </p>
                 <p> Help you visualize Rx and improve your debugging process </p>
-                <p id = 'getRxDashboard'> <Link to="/signin" id = 'getRxDashboardLink'> Get dashboard for Rx </Link> </p>
+                <p id = 'getRxDashboard'> <Link to = '/signin' id = 'getRxDashboardLink'> Get dashboard for Rx </Link> </p>
             </div>
             <div className = 'mainPagePicture'>
                 <img src={`${process.env.PUBLIC_URL}/img/main.gif`}
