@@ -4,11 +4,17 @@ import { CreateApiKeyForm } from '../components/createApiKeyForm/CreateApiKeyFor
 
 export const CreateApiKey = () => {
     return (
-        
-            <div className = 'createApiKeyPageMainBlock'>
+    // <div className = 'createApiKeyPageMainBlock'>
+    //     <DashboardMenu />
+    //     <CreateApiKeyForm />
+    // </div>
+    <div className = 'createApiKey'>
+            <div className = 'createApiKeyMenu'>
                 <DashboardMenu />
-                <CreateApiKeyForm />
             </div>
-        
+            <div className = 'createApiKeyComponent'>
+            <CreateApiKeyForm />
+            </div>
+        </div>
     );
 };

@@ -1,8 +1,4 @@
 import React, {useState} from 'react';
-import { BsArrowRight } from 'react-icons/bs';
-import { CgArrowLongRight } from 'react-icons/cg';
-import { RiArrowDropRightLine } from 'react-icons/ri';
-//import { randomColor } from 'randomcolor';
 import { getRandomColor } from './colors';
 
 import axios from 'axios';
@@ -13,7 +9,7 @@ export const Marbles = () => {
 
     const drawMarbleDiagram = () => {
         axios
-        .get(`${process.env.REACT_APP_SERVER}/marbles`)
+        .post(`${process.env.REACT_APP_SERVER}/marbles`)
         .then((response) => {
             setData(response.data);
         })
@@ -34,8 +30,6 @@ export const Marbles = () => {
 
                 const currentElementIndex = data.indexOf(d);
                 const lastElement = data[currentElementIndex + 1];
-
-                console.log('last:', lastElement);
 
                 if (!lastElement) {
                     checkIsElementIsLast = true;

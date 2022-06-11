@@ -1,8 +1,39 @@
-.diagramPage {
-    // border: 1px solid red;
+// .fullMarblesDiagram {
+//     display: flex;
+
+//     &Menu {
+//         width: 20%;
+//     };
+
+//     &Component {
+//         width: 80%;
+//     };
+// };
+
+.createApiKey, .listOfApiKeys, .fullMarblesDiagram {
     display: flex;
+
+    &Menu {
+        //border: 10px solid red;
+        width: 20%;
+    };
+
+    &Component {
+        width: 80%;
+        //border: 10px solid gold;
+    };
 };
 
-.createApiKeyPageMainBlock {
-    display: flex;
-};
+// .listOfApiKeys {
+//     display: flex;
+    
+//     &Menu {
+//         //border: 1px solid red;
+//         width: 20%;
+//     };
+
+//     &Componet {
+//         width: 80%;
+//         //border: 1px solid palegoldenrod;
+//     };
+// }

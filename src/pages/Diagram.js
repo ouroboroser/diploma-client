@@ -4,9 +4,13 @@ import './styles.scss';
 
 export const Diagram = () => {
     return (
-        <div className = 'diagramPage'>
-            <DashboardMenu />
-            <Marbles />
+        <div className = 'fullMarblesDiagram'>
+            <div className = 'fullMarblesDiagramMenu'>
+                <DashboardMenu />
+            </div>
+            <div className = 'fullMarblesDiagramComponent'>
+                <Marbles />
+            </div>
         </div>
     );
 };

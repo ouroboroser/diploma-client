@@ -9,10 +9,10 @@
 .createApiKeyFormWrapper {
     //border: 1px solid red;
     display: flex;
-    width: 80%;
+    //width: 80%;
     align-items: center;
     justify-content: center;
-    margin-left: 10%;
+    //margin-left: 10%;
 
     &Img {
        // border: 1px solid green;
@@ -43,6 +43,7 @@
             font-weight: 500;
             text-align: start;
             margin-bottom: -10px;
+            margin-left: 10px;
         };
 
         &ApiKey {

@@ -1,9 +1,9 @@
 .diagramWrapper {
-//border: 1px solid red;
+    border: 1px solid rgb(15, 13, 1);
     display: flex;
     flex-direction: column;
-    width: 80%;
-    margin-left: 10%;
+    //width: 80%;
+    //margin-left: 10%;
     height: 100vh;
     align-items: center;
     justify-content: center;
@@ -11,8 +11,8 @@
 };
 
 .diagram {
-    width: 80%;
-    //border: 1px solid green;
+    width: 90%;
+    // border: 10px solid red;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
@@ -30,7 +30,7 @@
 
 .marble {
     position: relative;
-  display: inline-block;
+    display: inline-block;
 };
 
 .marble {
@@ -72,11 +72,11 @@
 
 .showMarblesDiagram {
     //border: 1px solid yellow;
-    width: 80%;
+    //width: 80%;
 };
 
 #showMarblesDiagramBtn {
-    width: 20%;
+    width: 500px;
     height: 40px;
     //margin: 0 0 0 20%;
     padding: 5px;
@@ -90,6 +90,7 @@
     border-radius: 5px;
     margin-top: 5px;
     margin-left: 40%;
+    border: 1px solid red;
 };
 
 .tooltiptext {
@@ -128,6 +129,5 @@
 }
 
 .blya {
-    //border: 1px solid red;
     margin-top: -15px;
 }
