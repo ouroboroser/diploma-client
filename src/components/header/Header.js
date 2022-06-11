@@ -1,8 +1,12 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BsGraphUp } from 'react-icons/bs';
+import { links } from './links';
 import './header.scss';
 
 export const Header = () => {
+    const data = JSON.parse(localStorage.getItem('data'));
+
     return(
         <div>
             <header className = 'header'>
@@ -15,9 +19,24 @@ export const Header = () => {
                     <BsGraphUp size={33}/>
                 </div>
                 <div className = 'menu'>
-                    <Link to="/about" className = 'menuLinkText'> About </Link>
-                    <Link to="/docs" className = 'menuLinkText'> Docs </Link>
-                    <Link to="/signin" className = 'menuLinkText'> Sign in </Link>
+                    {links.map((link, index) => {
+                        if (link.path === '/signin') {
+                            if (data) {
+                                return(
+                                    <Link key = {index} to = '/logout' className = 'menuLinkText'> Logout </Link>
+                                );
+                            } else {
+                                return (
+                                    <Link key = {index} to = {link.path} className = 'menuLinkText'> {link.text} </Link>
+                                );
+                            }
+                        } else {
+                            return (
+                                <Link key = {index} to = {link.path} className = 'menuLinkText'> {link.text} </Link>
+                            );
+                        }
+                        
+                    })}
                 </div>
             </header>
         </div>
