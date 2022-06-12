@@ -1,11 +1,31 @@
-import React, {useState} from 'react';
-import { getRandomColor } from './colors';
-
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { isEqual } from 'lodash';
+import { getRandomColor } from './colors';
 import './styles.scss';
 
 export const Marbles = () => {
     const [data, setData] = useState([]);
+
+    // useEffect(() => {
+    //     setInterval(() => {
+    //         axios
+    //         .post(`${process.env.REACT_APP_SERVER}/marbles`)
+    //         .then((response) => {
+    //             const retrievedDataFromServer = response.data;
+    //             const retrievedDataFromLocalStorage = JSON.parse(localStorage.getItem('operations'));
+
+    //             const equal = isEqual(retrievedDataFromLocalStorage, retrievedDataFromServer);
+                
+    //             if (!equal) {
+    //                 localStorage.setItem('operations', JSON.stringify(retrievedDataFromServer, null, 2));
+    //                 setData(retrievedDataFromServer);
+    //             };
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
+    //     }, 1000)});
 
     const drawMarbleDiagram = () => {
         axios
@@ -14,9 +34,18 @@ export const Marbles = () => {
             setData(response.data);
         })
         .catch((error) => {
-          console.log(error);
+            console.log(error);
         });
     };
+
+    // const dataFromLocalStorage = JSON.parse(localStorage.getItem('operations'));
+
+    // console.log('data', data)
+    // console.log('local', dataFromLocalStorage);
+
+    // const dataToDraw = data.length === 0 ? dataFromLocalStorage : data;
+
+    // console.log('draw to data', dataToDraw);
 
     return(
         <div className = 'diagramWrapper'>
@@ -79,7 +108,7 @@ export const Marbles = () => {
             <div className = 'showMarblesDiagram'>
                 <button id = 'showMarblesDiagramBtn' 
                     onClick={() => drawMarbleDiagram()}> 
-                    Show diagram
+                    Build diagram
                 </button>
             </div>
         </div>
