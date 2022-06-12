@@ -1,4 +1,4 @@
-import { BsPlusSquareDotted, BsList, BsDiagram3 } from 'react-icons/bs';
+import { BsPlusSquareDotted, BsList, BsClockHistory } from 'react-icons/bs';
 import { BiGitCommit, BiMessageRounded } from 'react-icons/bi';
 import { HiOutlineDocumentDuplicate } from 'react-icons/hi';
 import { FiLogOut } from 'react-icons/fi';
@@ -18,6 +18,11 @@ export const links = [
         path: '/diagram',
         text: 'Look diagram',
         icon: <BiGitCommit size={20} />
+    },
+    {
+        path: '/history',
+        text: 'Your history',
+        icon: <BsClockHistory size={20} />
     },
     {
         path: '/about',

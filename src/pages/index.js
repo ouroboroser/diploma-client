@@ -6,3 +6,5 @@ export { Dashboard } from './Dashboard';
 export { CreateApiKey } from './CreateApiKey';
 export { ListOfApiKeys } from './ListOfApiKeys';
 export { Diagram } from './Diagram';
+export { DiagramsHistory } from './DiagramsHistory';
+export { About } from './About';

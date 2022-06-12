@@ -1,4 +1,15 @@
-import { Docs, Home, SignIn, SignUp, Dashboard, CreateApiKey, ListOfApiKeys, Diagram } from './pages';
+import { 
+    Docs, 
+    Home, 
+    SignIn, 
+    SignUp, 
+    Dashboard, 
+    CreateApiKey, 
+    ListOfApiKeys,
+    Diagram,
+    DiagramsHistory,
+    About
+} from './pages';
 
 export const routers = [
     {
@@ -11,6 +22,12 @@ export const routers = [
         path: '/docs',
         exact: false,
         component: Docs,
+        auth: false,
+    },
+    {
+        path: '/about',
+        exact: false,
+        component: About,
         auth: false,
     },
     {
@@ -47,6 +64,12 @@ export const routers = [
         path: '/diagram',
         exact: false,
         component: Diagram,
+        auth: true,
+    },
+    {
+        path: '/history',
+        exact: false,
+        component: DiagramsHistory,
         auth: true,
     },
 ];

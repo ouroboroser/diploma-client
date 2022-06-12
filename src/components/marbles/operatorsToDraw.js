@@ -1,0 +1,1 @@
+export const operatorsToDraw = ['range_created', 'filter_input', 'map_input'];

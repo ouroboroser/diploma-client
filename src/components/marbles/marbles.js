@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { isEqual } from 'lodash';
 import { getRandomColor } from './colors';
+import { checkIfElementIsLast } from '../../helpers/checkIfElementIsLast';
+import { findFilterResult } from '../../helpers/findFilterResult';
+import { findMapResult } from '../../helpers/findMapResult';
+import { operatorsToDraw } from './operatorsToDraw';
 import './styles.scss';
 
 export const Marbles = () => {
@@ -27,7 +31,7 @@ export const Marbles = () => {
     //         });
     //     }, 1000)});
 
-    const drawMarbleDiagram = () => {
+    const buildMarbleDiagram = () => {
         axios
         .post(`${process.env.REACT_APP_SERVER}/marbles`)
         .then((response) => {
@@ -37,6 +41,11 @@ export const Marbles = () => {
             console.log(error);
         });
     };
+
+    const saveMarbleDiagram = () => {
+        console.log('work');
+    };
+
 
     // const dataFromLocalStorage = JSON.parse(localStorage.getItem('operations'));
 
@@ -49,51 +58,29 @@ export const Marbles = () => {
 
     return(
         <div className = 'diagramWrapper'>
+            <p className = 'diagramWrapperTitle'> Your chart will be reflected at the bottom </p>
             <div className='diagram'>
-            {data.map((d, index) => {
+            {data.map((currentElement, index) => {
                 const color = getRandomColor(0, 5);
 
-                let filterResult = false;
-                let mapResult = 0;
-                let checkIsElementIsLast = false;
+                const isLast = checkIfElementIsLast(data, currentElement);
+                const filterResult = findFilterResult(data, currentElement);
+                const mapResult = findMapResult(data, currentElement);
 
-                const currentElementIndex = data.indexOf(d);
-                const lastElement = data[currentElementIndex + 1];
-
-                if (!lastElement) {
-                    checkIsElementIsLast = true;
-                };
-
-                if (d.operation === 'filter_input') {
-                    const getResultOfFilterFunction = data[currentElementIndex + 1];
-
-                    if (getResultOfFilterFunction) {
-                        if (getResultOfFilterFunction.operation === 'filter_output') {
-                            filterResult = true;
-                        }
-                    };
-                };
-
-                if (d.operation === 'map_input') {
-                    const getResultOfMapFunction = data[currentElementIndex + 1];
-
-                    mapResult = getResultOfMapFunction.arg;
-                };
-
-                if (['range_created', 'filter_input', 'map_input'].includes(d.operation)) {
+                if (operatorsToDraw.includes(currentElement.operation)) {
                     return (
                         <div className = 'marbleWrapper' key = {index}>
                             <div className = 'marble' style={{ background: color }}>
-                                <p className = 'blya'> {d.operation === 'range_created' ? <p> * </p> : <p> {d.arg} </p>} </p>
+                                <p className = 'blya'> {currentElement.operation === 'range_created' ? <p> * </p> : <p> {currentElement.arg} </p>} </p>
                                 <div className ='tooltiptext'>
-                                    {d.operation === 'range_created' ? <p> start: true </p> : <p></p> }
-                                    {d.operation === 'range_created' ? <p> range values: [{d.args[0]}, {d.args[1]}]</p> : <p></p> }
-                                    {d.operation === 'filter_input' ? <p> function type: filter <br/> function: {d.filter} <br/> value: {d.arg} <br/> passed: {filterResult === true ? 'true' : 'false' } </p> : <p></p> }
-                                    {d.operation === 'map_input' ? <p> function type: map <br/> function: {d.map} <br/> value: {d.arg} <br/> result: {mapResult} </p> : <p></p> }
+                                    {currentElement.operation === 'range_created' ? <p> start: true </p> : <p></p> }
+                                    {currentElement.operation === 'range_created' ? <p> range values: [{currentElement.args[0]}, {currentElement.args[1]}]</p> : <p></p> }
+                                    {currentElement.operation === 'filter_input' ? <p> function type: filter <br/> function: {currentElement.filter} <br/> value: {currentElement.arg} <br/> passed: {filterResult === true ? 'true' : 'false' } </p> : <p></p> }
+                                    {currentElement.operation === 'map_input' ? <p> function type: map <br/> function: {currentElement.map} <br/> value: {currentElement.arg} <br/> result: {mapResult} </p> : <p></p> }
                                 </div>
                             </div>
 
-                            { checkIsElementIsLast ? '' : 
+                            { isLast ? '' : 
                                 <div id = 'marbleArrowId' className = 'marbleArrow'>
                                     <img src={`${process.env.PUBLIC_URL}/img/arro10.png`}
                                         alt='login'
@@ -107,8 +94,12 @@ export const Marbles = () => {
             </div>
             <div className = 'showMarblesDiagram'>
                 <button id = 'showMarblesDiagramBtn' 
-                    onClick={() => drawMarbleDiagram()}> 
+                    onClick={() => buildMarbleDiagram()}> 
                     Build diagram
+                </button>
+                <button id = 'showMarblesDiagramBtn' 
+                    onClick={() => saveMarbleDiagram()}> 
+                    Save your diagram
                 </button>
             </div>
         </div>

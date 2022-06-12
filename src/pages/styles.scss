@@ -1,39 +1,11 @@
-// .fullMarblesDiagram {
-//     display: flex;
-
-//     &Menu {
-//         width: 20%;
-//     };
-
-//     &Component {
-//         width: 80%;
-//     };
-// };
-
-.createApiKey, .listOfApiKeys, .fullMarblesDiagram {
+.createApiKey, .listOfApiKeys, .fullMarblesDiagram, .diagramsHistory, .docs, .about {
     display: flex;
 
     &Menu {
-        //border: 10px solid red;
         width: 20%;
     };
 
     &Component {
         width: 80%;
-        //border: 10px solid gold;
     };
 };
-
-// .listOfApiKeys {
-//     display: flex;
-    
-//     &Menu {
-//         //border: 1px solid red;
-//         width: 20%;
-//     };
-
-//     &Componet {
-//         width: 80%;
-//         //border: 1px solid palegoldenrod;
-//     };
-// }

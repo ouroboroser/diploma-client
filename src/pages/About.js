@@ -1,9 +1,9 @@
 import { DashboardMenu } from '../components/dashboardMenu/DashboardMenu';
 
-export const Docs = () => {
+export const About = () => {
     return (
-    <div className = 'docs'>
-        <div className = 'docsMenu'>
+    <div className = 'about'>
+        <div className = 'aboutMenu'>
             <DashboardMenu />
         </div>
             {/* <div className = 'diagramsHistoryComponent'>
