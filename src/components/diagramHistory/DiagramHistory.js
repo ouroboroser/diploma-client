@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Marbles } from '../marbles/Marbles';
+import { operatorsToDraw } from '../currentDiagram/operatorsToDraw';
+import './diagramHistory.scss';
 
 export const DiagramHistory = () => {
-    const [data, setData] = useState([]);
+    const [diagrams, setDiagram] = useState([]);
     
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem('data'));
@@ -17,7 +20,8 @@ export const DiagramHistory = () => {
         
         axios(requestParams)
         .then(response => {
-            setData(response.data);
+            console.log(response.data);
+            setDiagram(response.data);
         })
         .catch(error => {
           console.log(error);
@@ -25,8 +29,28 @@ export const DiagramHistory = () => {
         }, []);
 
     return (
-        <div>
-            text
-        </div>
+        <>
+            {diagrams.map((diagram, index) => {
+                <p> {diagram.id } </p>
+                return (
+                <div className = 'diagramBlockWapper' key = {index}>
+                    <div className = 'diagramBlockTitle'>
+                        <p> <span className = 'diagramBlockSubTitle'> ID: </span> {diagram.id} </p>
+                        <p> <span className = 'diagramBlockSubTitle'> DATA: </span> {diagram.data} </p>
+                    </div>
+                    <div className = 'diagramBlock'>
+                        {/* <div> */}
+                            {diagram.operations.map((o, index) => {
+                                if (operatorsToDraw.includes(o.operation)) {
+                                return (
+                                    <Marbles allElements = {diagram.operations} index = {index} currentElement = {o} key = {index} />
+                                )}
+                            })}
+                        {/* </div> */}
+                    </div>
+                    </div>
+                )
+            })}
+        </>
     );
 };

@@ -8,3 +8,4 @@ export { ListOfApiKeys } from './ListOfApiKeys';
 export { Diagram } from './Diagram';
 export { DiagramsHistory } from './DiagramsHistory';
 export { About } from './About';
+export { Logout } from './Logout';

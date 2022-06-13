@@ -13,7 +13,6 @@ export const LoginForm = () => {
         axios
         .post(`${process.env.REACT_APP_SERVER_FOR_INTEGRATIONS}/users/sign-in`, { email, password })
         .then(response => {
-            console.log(response)
             localStorage.setItem('data', JSON.stringify(response.data));
             setLogin(true);
         })
@@ -25,7 +24,7 @@ export const LoginForm = () => {
 
     if (login) {
         return (
-            <Redirect to = '/dashboard' />
+            <Redirect to = '/create-api-key' />
         )
     }
 

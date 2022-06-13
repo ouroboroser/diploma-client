@@ -8,7 +8,8 @@ import {
     ListOfApiKeys,
     Diagram,
     DiagramsHistory,
-    About
+    About,
+    Logout
 } from './pages';
 
 export const routers = [
@@ -70,6 +71,12 @@ export const routers = [
         path: '/history',
         exact: false,
         component: DiagramsHistory,
+        auth: true,
+    },
+    {
+        path: '/logout',
+        exact: false,
+        component: Logout,
         auth: true,
     },
 ];

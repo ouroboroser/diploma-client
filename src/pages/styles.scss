@@ -1,4 +1,4 @@
-.createApiKey, .listOfApiKeys, .fullMarblesDiagram, .diagramsHistory, .docs, .about {
+.createApiKey, .listOfApiKeys, .fullMarblesDiagram, .docs, .about {
     display: flex;
 
     &Menu {
@@ -8,4 +8,34 @@
     &Component {
         width: 80%;
     };
+};
+
+.diagramsHistory {
+    //border: 1px solid green;
+    display: flex;
+    justify-content: end;
+
+    &Menu {
+        //border: 1px solid salmon;
+        width: 20vw;
+        height: 100vh;
+        position: fixed;
+        background-color: white;
+    };
+
+    &Component {
+        width: 75%;
+        // margin-left: 10px;
+        // float: right;
+    };
+}
+
+.l {
+    // border: 1px solid red;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+   // justify-content: center;
+    align-items: center;
+
 };

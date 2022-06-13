@@ -1,0 +1,34 @@
+.diagramBlockWapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    // border: 1px solid green;
+    //margin-left: -50px;
+};
+
+.diagramBlock {
+    //border: 1px solid red;
+    width: 90%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 0 35px rgba(87, 87, 87, 0.2);
+    margin-bottom: 30px;
+
+    &Title {
+        // border: 1px solid gold;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 15px;
+    };
+
+    &SubTitle {
+        font-weight: bold;
+    };
+};

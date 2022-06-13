@@ -3,13 +3,18 @@ import { DiagramHistory } from '../components/diagramHistory/DiagramHistory';
 
 export const DiagramsHistory = () => {
     return (
-        <div className = 'diagramsHistory'>
+        <>
             <div className = 'diagramsHistoryMenu'>
                 <DashboardMenu />
             </div>
-            <div className = 'diagramsHistoryComponent'>
-                <DiagramHistory />
+            <div className = 'diagramsHistory'>
+                <div className = 'diagramsHistoryComponent'>
+                    <div className='l'>
+                        <div> fff </div>
+                        <DiagramHistory />
+                    </div>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
