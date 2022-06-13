@@ -1,0 +1,60 @@
+.diagramWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 99.5vh;
+    align-items: center;
+    justify-content: center;
+
+    &Title {
+        font-weight: bold;
+    };
+    
+};
+
+.diagram {
+    width: 90%;
+    height: 40%;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: 0 0 35px rgba(87, 87, 87, 0.2);
+    margin-bottom: 30px;
+};
+
+.marbleArrow {
+    height: 60px;
+    margin-left: 2px;
+    margin-right: 2px;
+};
+
+#marbleArrowId {
+    transform: rotate(180deg)
+};
+
+.showMarblesDiagram {
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+
+    &Btn {
+        height: 50px;
+        padding: 5px;
+        color: white;
+        font-family: 'Noto Sans TC', sans-serif;
+        font-size: 15px;
+        font-weight: 700;
+        background-color: #62bfc7;
+        border: none;
+        border-radius: 5px;
+        margin-top: 5px;
+        width: 30%;
+
+        &:hover {
+            background-color: #509aa1;
+        };
+    };
+
+};

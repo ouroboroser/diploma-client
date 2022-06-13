@@ -1,5 +1,5 @@
 import { DashboardMenu } from '../components/dashboardMenu/DashboardMenu';
-import { Marbles } from '../components/marbles/marbles';
+import { CurrentDiagram } from '../components/currentDiagram/currentDiagram';
 import './styles.scss';
 
 export const Diagram = () => {
@@ -9,7 +9,7 @@ export const Diagram = () => {
                 <DashboardMenu />
             </div>
             <div className = 'fullMarblesDiagramComponent'>
-                <Marbles />
+                <CurrentDiagram />
             </div>
         </div>
     );
