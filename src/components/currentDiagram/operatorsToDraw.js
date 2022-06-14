@@ -1,1 +1,1 @@
-export const operatorsToDraw = ['range_created', 'filter_input', 'map_input'];
+export const operatorsToDraw = ['of_created', 'range_created', 'filter_input', 'map_input', 'from_fetch_url'];
