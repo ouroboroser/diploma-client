@@ -10,7 +10,6 @@ export const DiagramsHistory = () => {
             <div className = 'diagramsHistory'>
                 <div className = 'diagramsHistoryComponent'>
                     <div className='l'>
-                        <div> fff </div>
                         <DiagramHistory />
                     </div>
                 </div>

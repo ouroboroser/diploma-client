@@ -24,8 +24,15 @@
         flex-direction: column;
         justify-content: center;
         //border: 1px solid rgb(118, 24, 24);
-        //text-align: center;
+        // text-align: center;
         height: 50%;
+
+        &Loader {
+            text-align: center;
+            //border: 1px solid red;
+            width: 6%;
+            margin-left: 47%;
+        };
 
         &Description {
             //border: 1px solid red;
@@ -47,11 +54,10 @@
         };
 
         &ApiKey {
-            //border: 1px solid red;
+            margin-left: 10px;
             color: black;
             font-size: 14px;
             font-weight: bold;
-            //margin-top: -10px;
         };
 
         &Inpt{
@@ -68,11 +74,19 @@
             };
         };
 
+        &Error {
+            text-align: center;
+            color: #ec615b;
+            font-size: 12px;
+            margin: 0px;
+            margin-bottom: 2px;
+        };
+
         &Btn {
             margin-left: 30%;
             width: 40%;
             height: 40px;
-            background-color: #EC615B;
+            background-color: #ec8480;
             border-radius: 10px;
             border: none;
             text-transform: uppercase;

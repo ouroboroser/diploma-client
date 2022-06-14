@@ -30,8 +30,24 @@ export const APIKeys = () => {
         });
     }, []);
 
-    const changeKeyStatus = () => {
-        console.log('w')
+    const changeKeyStatus = id => {
+        const data = JSON.parse(localStorage.getItem('data'));
+
+        const requestParams = {
+            method: 'patch',
+            url: `${process.env.REACT_APP_SERVER_FOR_INTEGRATIONS}/diagrams/api-key/${id}`,
+            headers: {
+                Authorization: `Bearer ${data.token}`,
+            },
+        };
+        
+        axios(requestParams)
+        .then(response => {
+            console.log('res', response);
+        })
+        .catch(error => {
+          console.log(error);
+        });
     };
 
     if (loader) {
@@ -45,7 +61,6 @@ export const APIKeys = () => {
         );
     } else {
 
-
     return (
         <div className = 'keyWrapper'>
             <p> {username}, here you can see the whole list of keys </p>
@@ -57,12 +72,12 @@ export const APIKeys = () => {
                     <p className = 'keyItem'> <span className = 'keyItemName'> ID: </span> <span> {val.id } </span> </p>
                     <p className = 'keyItem'> <span className = 'keyItemName'> KEY: </span> {val.key } </p>
                     <p className = 'keyItem'> <span className = 'keyItemName'> DATA: </span> <span> {data} </span> </p>
-                    <p className = 'keyItem'> <span className = 'keyItemName'> ACTIVE: </span> <span> {val.disable ? 'yes' : 'no' } </span> </p>
-                    <p className = 'keyItem'> <span className = 'keyItemName'> CHANGE STATUS: </span> <span> <button className='keyItemBtn'onClick={() => changeKeyStatus()}> edit </button> </span> </p>
+                    <p className = 'keyItem'> <span className = 'keyItemName'> ACTIVE: </span> <span> {val.disable === false ? 'yes' : 'no' } </span> </p>
+                    <p className = 'keyItem'> <span className = 'keyItemName'> CHANGE STATUS: </span> <span> <button className='keyItemBtn' onClick={() => changeKeyStatus(val.id)}> edit </button> </span> </p>
                 </div>
                 )
             })}
         </div>
     );
-        };
+    };
 };
