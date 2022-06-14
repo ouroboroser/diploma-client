@@ -1,13 +1,15 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './apiKeys.scss';
-import { GrBrush } from 'react-icons/gr';
 
 export const APIKeys = () => {
     const [keys, setKeys] = useState([]);
+    const [username, setUsername] = useState('');
+    const [loader, setLoader ] = useState(true);
 
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem('data'));
+        setUsername(data.username);
 
         const requestParams = {
             method: 'get',
@@ -21,6 +23,7 @@ export const APIKeys = () => {
         .then(response => {
             setKeys(response.data);
             console.log('res', response);
+            setLoader(false);
         })
         .catch(error => {
           console.log(error);
@@ -31,31 +34,35 @@ export const APIKeys = () => {
         console.log('w')
     };
 
+    if (loader) {
+        return (
+            <div className = 'loader'>
+                <img style = {{marginTop: 10 }} src={`${process.env.PUBLIC_URL}/img/catLoader.gif`}
+                 alt = 'rxicon' width = {700}
+                 />
+                 <p className = 'loaderTitle' > We need time ... </p>
+            </div>
+        );
+    } else {
+
+
     return (
         <div className = 'keyWrapper'>
-            {/* <table className = 'apiKeyTableMain'> */}
-                {/* <tr>
-                    <th className = 'apiKeyTableMainTitle'> ID </th>
-                    <th className = 'apiKeyTableMainTitle'> Key </th>
-                    <th className = 'apiKeyTableMainTitle'> Date of creation </th>
-                    <th className = 'apiKeyTableMainTitle'> Active </th>
-                    <th className = 'apiKeyTableMainTitle'> Change key status </th>
-                </tr> */}
-                
-                {keys.map((val, key) => {
-                    const color = key % 2 === 0 ? '#cccaca': '#f2f2f2'
+            <p> {username}, here you can see the whole list of keys </p>
+            {keys.map((val, key) => {
+                const data = String(val.createdAt).split('T')[0];
 
-                    return (
-                    <div key={key} className = 'key'>
-                        <p className = 'apiKeyTableMainRow'> <span> ID: </span> {val.id } </p>
-                        <p className = 'apiKeyTableMainRow'> {val.key } </p>
-                        <p className = 'apiKeyTableMainRow'> {val.createdAt } </p>
-                        <p className = 'apiKeyTableMainRow'> {val.disable ? 'yes' : 'no' } </p>
-                        <p className = 'apiKeyTableMainRow'> <button style={{ background: color }} className = 'apiKeyTableMainBtn' onClick = {() => changeKeyStatus()}> <GrBrush /> </button></p>
-                    </div>
-                    )
-                })}
-            {/* </table> */}
+                return (
+                <div key={key} className = 'key'>
+                    <p className = 'keyItem'> <span className = 'keyItemName'> ID: </span> <span> {val.id } </span> </p>
+                    <p className = 'keyItem'> <span className = 'keyItemName'> KEY: </span> {val.key } </p>
+                    <p className = 'keyItem'> <span className = 'keyItemName'> DATA: </span> <span> {data} </span> </p>
+                    <p className = 'keyItem'> <span className = 'keyItemName'> ACTIVE: </span> <span> {val.disable ? 'yes' : 'no' } </span> </p>
+                    <p className = 'keyItem'> <span className = 'keyItemName'> CHANGE STATUS: </span> <span> <button className='keyItemBtn'onClick={() => changeKeyStatus()}> edit </button> </span> </p>
+                </div>
+                )
+            })}
         </div>
     );
+        };
 };

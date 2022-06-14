@@ -6,6 +6,7 @@ import './diagramHistory.scss';
 
 export const DiagramHistory = () => {
     const [diagrams, setDiagram] = useState([]);
+    const [loader, setLoader ] = useState(true);
     
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem('data'));
@@ -22,16 +23,28 @@ export const DiagramHistory = () => {
         .then(response => {
             console.log(response.data);
             setDiagram(response.data);
+            setLoader(false);
         })
         .catch(error => {
           console.log(error);
         });
         }, []);
 
-    return (
-        <>
+
+    if (loader) {
+        return (
+            <div className = 'loader'>
+                <img style = {{marginTop: 10 }} src={`${process.env.PUBLIC_URL}/img/catLoader.gif`}
+                 alt = 'rxicon' width = {700}
+                 />
+                 <p className = 'loaderTitle' > We need time ... </p>
+            </div>
+        );
+    } else {
+        return (
+            <>
             {diagrams.map((diagram, index) => {
-                <p> {diagram.id } </p>
+            <p> {diagram.id } </p>
                 return (
                 <div className = 'diagramBlockWapper' key = {index}>
                     <div className = 'diagramBlockTitle'>
@@ -53,4 +66,5 @@ export const DiagramHistory = () => {
             })}
         </>
     );
+    }
 };
