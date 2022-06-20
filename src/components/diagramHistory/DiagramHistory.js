@@ -40,10 +40,13 @@ export const DiagramHistory = () => {
                  <p className = 'loaderTitle' > We need time ... </p>
             </div>
         );
-    } else {
+    }
+    
+    if (diagrams.length > 0) {
         return (
             <>
             {diagrams.map((diagram, index) => {
+                console.log(diagram);
             <p> {diagram.id } </p>
                 return (
                 <div className = 'diagramBlockWapper' key = {index}>
@@ -66,5 +69,18 @@ export const DiagramHistory = () => {
             })}
         </>
     );
+    }
+
+    if (diagrams.length === 0 ) {
+        return (
+            <div className = 'developerDontHaveDiagrams'>
+                <p className = 'developerDontHaveDiagramsTitle'> Your charts will be displayed here for this go to the Look diagram tab and click Save your diagram </p>
+                <div>
+                    <img src={`${process.env.PUBLIC_URL}/img/empty_box.gif`}
+                         alt='rxicon'
+                         className = 'developerDontHaveDiagramsImg'/>
+                    </div>
+            </div>
+        )
     }
 };

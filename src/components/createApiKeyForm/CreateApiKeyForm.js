@@ -22,11 +22,11 @@ export const CreateApiKeyForm = () => {
         
         axios(requestParams)
         .then(response => {
-            // setKeys(response.data);
-            console.log('res', response.data);
             setApiKeyIsExists(response.data.apiKeyStatus);
             setApiKey(response.data.apiKey);
             setLoader(false);
+            
+            localStorage.setItem('apiKey', response.data.apiKey);
         })
         .catch(error => {
           console.log(error);

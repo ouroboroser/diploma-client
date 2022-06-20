@@ -30,42 +30,53 @@ export const CurrentDiagram = () => {
 
     const buildMarbleDiagram = () => {
         axios
-        .post(`${process.env.REACT_APP_SERVER}/marbles`)
-        .then((response) => {
+        .get(`${process.env.REACT_APP_SERVER}/marbles`)
+        .then(response => {
+            console.log('data', response.data);
             setData(response.data);
         })
-        .catch((error) => {
-            console.log(error);
+        .catch(e => {
+            console.log(e);
         });
     };
 
     const saveMarbleDiagram = () => {
-        console.log('work');
-    };
+        const apiKey = localStorage.getItem('apiKey');
 
+        console.log('api key', apiKey);
+
+        axios
+        .post(`${process.env.REACT_APP_SERVER}/marbles`, { apiKey })
+        .then(response => {
+            console.log('data', response.data);
+        })
+        .catch(e => {
+            console.log(e);
+        });
+    };
+    
     return(
         <div className = 'diagramWrapper'>
             <p className = 'diagramWrapperTitle'> Your chart will be reflected at the bottom </p>
-
+    
             <div className='diagram'>
-            {data.map((el, key) => {
-                if (operatorsToDraw.includes(el.operation)) {
-                    return (<Marbles allElements = {data} index = {key} currentElement = {el} />);
-                };
-            })}
+                {data.map((el, key) => {
+                    if (operatorsToDraw.includes(el.operation)) {
+                        return (<Marbles allElements = {data} index = {key} currentElement = {el} />);
+                    };
+                })}
             </div>
-
+    
             <div className = 'showMarblesDiagram'>
                 <button className = 'showMarblesDiagramBtn' 
                     onClick={() => buildMarbleDiagram()}> 
                     Build diagram
                 </button>
                 <button className = 'showMarblesDiagramBtn' 
-                    onClick={() => saveMarbleDiagram()}> 
-                    Save your diagram
+                        onClick={() => saveMarbleDiagram()}> 
+                        Save your diagram
                 </button>
             </div>
-            
         </div>
     )
 };

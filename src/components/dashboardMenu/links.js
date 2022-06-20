@@ -26,7 +26,7 @@ export const links = [
     },
     {
         path: '/about',
-        text: 'About your app',
+        text: 'About our app',
         icon: <BiMessageRounded size={20} />
     },
     {

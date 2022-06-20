@@ -33,7 +33,7 @@ export const SignUpForm = () => {
 
     if (auth) {
         return (
-            <Redirect to = '/dashboard' />
+            <Redirect to = '/create-api-key' />
         )
     }
     
